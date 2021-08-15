@@ -1,2 +1,2 @@
-export * from "./students.constants";
+export * from "./characters.constants";
 export * from "./loading.constants";

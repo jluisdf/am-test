@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
-import { students } from "./students.reducer";
+import { characters } from "./characters.reducer";
 import { isLoading } from "./loading.reducer";
 
 const rootReducer = combineReducers({
-    students,
+    characters,
     isLoading,
 });
 

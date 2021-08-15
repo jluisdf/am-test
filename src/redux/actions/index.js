@@ -1,2 +1,2 @@
-export * from "./students.actions";
+export * from "./characters.actions";
 export * from "./loading.actions";
