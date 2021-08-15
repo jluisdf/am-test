@@ -38,24 +38,30 @@ const Character = character => {
                 </div>
                 <div className="col-12 col-md-12 col-lg-7">
                     <div className="card-body pt-2">
-                        <h5 className="card-title show-small">{name}</h5>
-                        <label className="opacity-25 mb-2 fz-14">{isAlive} / {isStudent}</label>
-                        {!favorite ?
-                            <label
-                                className="opacity-25 mb-2 float-end cursor-pointer"
-                                onClick={setFavorite}
-                            >
-                                <i className="far fa-bookmark"></i>
-                            </label>
-                        :
-                            <label
-                                className="opacity-25 mb-2 float-end"
-                            >
-                                <i className="fas fa-bookmark"></i>
-                            </label>
-                        }
-                        <h5 className="card-title hide-small">{name}</h5>
-                        <ul className="list-unstyled fz-15 hide-small">
+                        <h5 className="card-title show-on-small">{name}</h5>
+                        <div className="row">
+                            <div className="col-8">
+                                <label className="opacity-25 mb-2 fz-14">{isAlive} / {isStudent}</label>
+                            </div>
+                            <div className="col-4">
+                                {!favorite ?
+                                    <label
+                                        className="opacity-25 mb-2 float-end cursor-pointer"
+                                        onClick={setFavorite}
+                                    >
+                                        <i className="far fa-bookmark"></i>
+                                    </label>
+                                :
+                                    <label
+                                        className="opacity-25 mb-2 float-end"
+                                    >
+                                        <i className="fas fa-bookmark"></i>
+                                    </label>
+                                }
+                            </div>
+                        </div>
+                        <h5 className="card-title hide-on-small">{name}</h5>
+                        <ul className="list-unstyled fz-15 hide-on-small">
                             <li><b>Cumpleaños:</b> {dateOfBirth}0</li>
                             <li><b>Género:</b> {gender}</li>
                             <li><b>Color de ojos:</b> {eyeColour}</li>

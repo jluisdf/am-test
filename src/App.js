@@ -8,6 +8,7 @@ import Filter from './components/Filter';
 import Navbar from './components/Navbar';
 import Logo from './components/Logo';
 import Footer from './components/Footer';
+import RegisterModal from './components/RegisterModal';
 
 function App() {
 
@@ -24,7 +25,10 @@ function App() {
                 <Logo />
                 <Filter />
                 <Characters />
-                <Footer />
+                <div className="show-on-small">
+                    <Footer />
+                </div>
+                <RegisterModal />
             </div>
         </div>
     );

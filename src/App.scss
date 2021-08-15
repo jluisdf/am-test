@@ -106,21 +106,21 @@ body{
 }
 
 @media (max-width: 991.98px) {
-    .show-small {
+    .show-on-small {
         display: block!important;
     }
 
-    .hide-small {
+    .hide-on-small {
         display: none!important;
     }
 }
 
 @media (min-width: 992px) {
-    .show-small {
+    .show-on-small {
         display: none!important;
     }
 
-    .hide-small {
+    .hide-on-small {
         display: block!important;
     }
 }
@@ -132,6 +132,14 @@ body{
 
 .dropdown-item:focus, .dropdown-item:hover{
     background: #585191!important;
+}
+
+.w-100 {
+    width: 100%!important;
+}
+
+.w-50 {
+    width: 50%!important;
 }
 
 // Font sizes

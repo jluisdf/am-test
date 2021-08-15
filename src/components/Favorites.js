@@ -17,7 +17,7 @@ const Favorites = () => {
 
     return (
         <div className="dropdown">
-            <button className="btn btn-secondary dropdown-toggle bkgd-purple" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <button className="btn btn-secondary dropdown-toggle bkgd-purple w-100" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                 Favoritos <i className="far fa-bookmark"></i>
             </button>
             <ul className="dropdown-menu mt-n5 dropdown-favorites" aria-labelledby="dropdownMenuButton1">
