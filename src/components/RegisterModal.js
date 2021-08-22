@@ -1,27 +1,21 @@
 import React, { useState }  from 'react';
 import { useDispatch } from 'react-redux';
 import { charactersActions } from '../redux/actions/characters.actions';
+import { useForm } from '../hooks/useForm';
 
 const RegisterModal = (props) => {
 
     const dispatch = useDispatch();
-    const [character, setCharacter] = useState({
+    const initialData = {
         name: '',
         dateOfBirth: '',
         eyeColour: '',
         hairColour: '',
         gender: '',
         rol: '',
-    });
-
-    const updateState = e => {
-        setCharacter({
-            ...character,
-            [e.target.name]: e.target.value
-        })
-    }
-
-    const { name, dateOfBirth, eyeColour, hairColour, gender, rol } = character;
+    };
+    const [ formValues, handleInputChange, reset ] = useForm(initialData);
+    const { name, dateOfBirth, eyeColour, hairColour, gender, rol } = formValues;
 
     const sumbitForm = e => {
         e.preventDefault();
@@ -44,24 +38,17 @@ const RegisterModal = (props) => {
         }
 
         dispatch(charactersActions.register(data));
-
         // reset form & close modal
         document.getElementsByClassName('btn-close')[0].click();
-        setCharacter({
-            name: '',
-            dateOfBirth: '',
-            eyeColour: '',
-            hairColour: '',
-            gender: '',
-            rol: '',
-        });
+        document.getElementById("form-register").reset();
+        reset(initialData);
     }
 
 
     return (
         <div className="modal fade" id="registerModal" tabIndex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
             <div className="modal-dialog modal-lg">
-                <form className="row g-3" autoComplete="off" onSubmit={sumbitForm}>
+                <form className="row g-3" autoComplete="off" onSubmit={sumbitForm} id="form-register">
                     <div className="modal-content">
                         <div className="modal-header border-0">
                             <h5 className="modal-title" id="exampleModalLabel">Agrega un personaje</h5>
@@ -78,7 +65,7 @@ const RegisterModal = (props) => {
                                         name="name"
                                         required
                                         placeholder="Ingresa el nombre"
-                                        onChange={updateState}
+                                        onChange={handleInputChange}
                                         value={name}
                                     />
                                 </div>
@@ -91,7 +78,7 @@ const RegisterModal = (props) => {
                                         name="dateOfBirth"
                                         required
                                         placeholder="DD-MM-AAAA"
-                                        onChange={updateState}
+                                        onChange={handleInputChange}
                                         value={dateOfBirth}
                                     />
                                 </div>
@@ -106,7 +93,7 @@ const RegisterModal = (props) => {
                                         name="eyeColour"
                                         required
                                         placeholder="Color de ojos"
-                                        onChange={updateState}
+                                        onChange={handleInputChange}
                                         value={eyeColour}
                                     />
                                 </div>
@@ -119,7 +106,7 @@ const RegisterModal = (props) => {
                                         name="hairColour"
                                         required
                                         placeholder="Color de pelo"
-                                        onChange={updateState}
+                                        onChange={handleInputChange}
                                         value={hairColour}
                                     />
                                 </div>
@@ -136,7 +123,7 @@ const RegisterModal = (props) => {
                                             name="gender"
                                             id="gender1"
                                             value="female"
-                                            onChange={updateState}
+                                            onChange={handleInputChange}
                                             required
                                         />
                                     </div>
@@ -148,7 +135,7 @@ const RegisterModal = (props) => {
                                             name="gender"
                                             id="gender2"
                                             value="male"
-                                            onChange={updateState}
+                                            onChange={handleInputChange}
                                             required
                                         />
                                     </div>
@@ -164,7 +151,7 @@ const RegisterModal = (props) => {
                                             name="rol"
                                             id="rol1"
                                             value="student"
-                                            onChange={updateState}
+                                            onChange={handleInputChange}
                                             required
                                         />
                                     </div>
@@ -176,7 +163,7 @@ const RegisterModal = (props) => {
                                             name="rol"
                                             id="rol2"
                                             value="staff"
-                                            onChange={updateState}
+                                            onChange={handleInputChange}
                                             required
                                         />
                                     </div>
@@ -194,4 +181,4 @@ const RegisterModal = (props) => {
     )
 }
 
-export default RegisterModal
+export default RegisterModal;

@@ -9,11 +9,24 @@ const Characters = (props) => {
 
     useEffect(() => {
         let newCharacters = characters;
-        if(filter && filter === 'student') {
-            newCharacters = (characters.filter(character => character.hogwartsStudent));
-        }else if(filter && filter === 'staff'){
-            newCharacters = (characters.filter(character => !character.hogwartsStudent));
+
+        if(filter) {
+            switch (filter) {
+                case 'student':
+                    newCharacters = (characters.filter(character => character.hogwartsStudent));
+                break;
+                case 'staff':
+                    newCharacters = (characters.filter(character => !character.hogwartsStudent));
+                break;
+                case 'alive':
+                    newCharacters = (characters.filter(character => character.alive));
+                break;
+                case 'dead':
+                    newCharacters = (characters.filter(character => !character.alive));
+                break;
+            }
         }
+
         setFilteredCharacters(newCharacters);
     }, [characters, filter]);
 
